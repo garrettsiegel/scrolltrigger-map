@@ -1,8 +1,7 @@
-import { useRef } from "react"
+import { useRef, useEffect } from "react"
 
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
-import { useGSAP } from '@gsap/react';
 gsap.registerPlugin(ScrollTrigger)
 
 import "./App.css"
@@ -29,7 +28,7 @@ export function App() {
   const containerRef = useRef(null)
   const sectionRefs = useRef([])
 
-  useGSAP(() => {
+  useEffect(() => {
     const timeline = gsap.timeline({ paused: true })
     timeline
       .to(containerRef.current, { x: steps[0].x })
